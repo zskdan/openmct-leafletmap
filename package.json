@@ -9,8 +9,7 @@
   "scripts": {
     "clean": "rm -rf ./dist ./node_modules ./package-lock.json",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js",
-    "prepare": "npm run build"
+    "build": "webpack --config webpack.config.js"
   },
   "bugs": {
     "url": "https://github.com/zskdan/openmct-leafletmap/issues"
@@ -32,9 +31,10 @@
     "webpack": "^3.10.0"
   },
   "dependencies": {
-    "openmct": "git+ssh://git@github.com/zskdan/openmct.git",
     "leaflet": "1.9.2",
-    "vue2-leaflet": "2.7.1",
-    "vue": "^2.5.16"
+    "openmct": "git+ssh://git@github.com/zskdan/openmct.git",
+    "vue": "^2.5.16",
+    "vue-loader": "^17.2.2",
+    "vue2-leaflet": "2.7.1"
   }
 }

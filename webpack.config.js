@@ -1,5 +1,6 @@
 var path = require('path');
 var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const { VueLoaderPlugin } = require("vue-loader");
 
 module.exports = {
     entry: './src/LeafletMapPlugin',
@@ -31,6 +32,10 @@ module.exports = {
                     }
                 ]
             },
+	    {
+		test: /\.vue$/,
+		loader: "vue-loader",
+	    },
             {
                 test: /\.html$/,
                 use: [
@@ -48,6 +53,7 @@ module.exports = {
     },
     devtool: "source-map",
     plugins: [
+	new VueLoaderPlugin(),
         new UglifyJsPlugin({ sourceMap: true })
     ]
 };
