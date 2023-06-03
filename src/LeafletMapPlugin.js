@@ -7,11 +7,12 @@ define([
 	'use strict';
 	return function install(openmct) {
 
-	    openmct.types.addType('leafletmap', {
+	    openmct.types.addType('plugin.leafletmap', {
+                key: 'plugin.leafletmap',
 		name: 'Leaflet Map',
-		creatable: true,
-		description: 'Geopositioning for an object with latitude, longitude',
 		cssClass: "icon-box-round-corners",
+		description: 'Geopositioning for an object with latitude, longitude',
+		creatable: true,
 		initialize(domainObject) {
 		    domainObject.composition = [];
 		    domainObject.configuration = {
@@ -29,7 +30,7 @@ define([
 			key: "init.lat",
 			property: [
 			    "configuration", 
-			    "gaugeController",
+			    "mapController",
 			    "lat"
 			]
 		    },
@@ -40,10 +41,28 @@ define([
 			key: "init.lon",
 			property: [
 			    "configuration", 
-			    "gaugeController",
+			    "mapController",
 			    "lon"
 			]
-		    }
+		    },
+                    {
+                        key: "lon",
+                        name: "Longitude",
+                        control: "textfield",
+                        required: true
+                    },
+                    {
+                        key: "lat",
+                        name: "Latitude",
+                        control: "textfield",
+                        required: true
+                    },
+                    {
+                        key: "namespace",
+                        name: "Namespace",
+                        control: "textfield",
+                        required: true
+                    },
 		]
 	    });
 
